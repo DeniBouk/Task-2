@@ -5,7 +5,9 @@ import 'package:task_2/models/BasicSkills.dart';
 import '../../../size_config.dart';
 
 class BasicSkillCard extends StatelessWidget {
-  const BasicSkillCard({Key? key}) : super(key: key);
+  final BasicSkill basicSkill;
+
+  const BasicSkillCard({Key? key, required this.basicSkill}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class BasicSkillCard extends StatelessWidget {
       aspectRatio: 1.65,
       child: Container(
         decoration: BoxDecoration(
-          color: basicSkill[0].color,
+          color: basicSkill.color,
           borderRadius: BorderRadius.circular(defaultSize! * 1.8), // 18
         ),
         child: Row(
@@ -26,7 +28,7 @@ class BasicSkillCard extends StatelessWidget {
                   children: <Widget>[
                     Spacer(),
                     Text(
-                      basicSkill[0].title,
+                      basicSkill.title,
                       style: TextStyle(
                         fontSize: defaultSize * 2.2, // 22
                         color: Colors.white,
@@ -36,7 +38,7 @@ class BasicSkillCard extends StatelessWidget {
                     ),
                     SizedBox(height: defaultSize * 0.5), // 5
                     Text(
-                      basicSkill[0].description,
+                      basicSkill.description,
                       style: const TextStyle(
                         color: Colors.white54,
                       ),
@@ -47,13 +49,13 @@ class BasicSkillCard extends StatelessWidget {
                     BuildInfoRow(
                       defaultSize,
                       iconSrc: "assets/icon/book.svg",
-                      text: "${basicSkill[0].recipes} Module",
+                      text: "${basicSkill.recipes} Module",
                     ),
                     SizedBox(height: defaultSize * 0.5), // 5
                     BuildInfoRow(
                       defaultSize,
                       iconSrc: "assets/icon/people.svg",
-                      text: "${basicSkill[0].chefs} Resource",
+                      text: "${basicSkill.chefs} Resource",
                     ),
                     Spacer(),
                   ],
@@ -64,7 +66,7 @@ class BasicSkillCard extends StatelessWidget {
             AspectRatio(
               aspectRatio: 0.71,
               child: Image.asset(
-                basicSkill[0].imageSrc,
+                basicSkill.imageSrc,
                 fit: BoxFit.cover,
                 alignment: Alignment.centerLeft,
               ),

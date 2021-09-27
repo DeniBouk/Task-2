@@ -13,14 +13,20 @@ class Body extends StatelessWidget {
     return Column(
       children: <Widget>[
         Expanded(
-          child: GridView.builder(
-            itemCount: basicSkill.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              mainAxisSpacing: 20,
-              childAspectRatio: 1.65,
+          child: Padding(
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeConfig.defaultSize! * 2),
+            child: GridView.builder(
+              itemCount: basicSkill.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                mainAxisSpacing: 20,
+                childAspectRatio: 1.65,
+              ),
+              itemBuilder: (context, index) => BasicSkillCard(
+                basicSkill: basicSkill[index],
+              ),
             ),
-            itemBuilder: (context, index) => BasicSkillCard(),
           ),
         ),
       ],
